@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel ="stylesheet" href = "server.css">
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <title>Cabo Grill</title>
+    </head>
+    <h1>WHAT SALES TOGETHER REPORT</h1>
+    <table id="myTable" class="tg" style = "text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <thead style = "text-align: center;">
+          <tr style = "text-align: center;">
+            <th style="color:white; background-color: rgba(83,42,18,255);">Items</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Amount Sold</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Total Price</th>
+          </tr>
+        </thead>
+        <tbody id="testBody">
+            <% for (var i in salesTogetherReport) {%>
+                <tr id = "table<%=i%>">
+                    <td><%=salesTogetherReport[i][0]%></td>
+                    <td><%=salesTogetherReport[i][1]%></td>
+                    <td><%=salesTogetherReport[i][2]%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</head>

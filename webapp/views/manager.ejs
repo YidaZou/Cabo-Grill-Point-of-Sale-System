@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel ="stylesheet" href = "manager.css">
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <title>Cabo Grill</title>
+    </head>
+    <div class = "topnav">
+        <a href = "order" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Customer Order</a> 
+        <a href = "signin" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Sign In</a>
+        </div>
+    </div>
+    <br>
+
+    <div class = "row">
+    <div class = "column">
+    <h1 style="text-align: center;">MENU</h1>
+    
+
+    
+    <table id="myTable" class="tg" style = "text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <thead style = "text-align: center;">
+          <tr style = "text-align: center;">
+            <th style="color:white; background-color: rgba(83,42,18,255);">Menu Item</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Price</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Supplies</th>
+          </tr>
+        </thead>
+        <tbody id="testBody">
+            <% for (var i in menuList) {%>
+                <tr id = "table<%=i%>">
+                    <td><%=menuList[i].itemname%></td>
+                    <td><%=menuList[i].price%></td>
+                    <td><%=menuList[i].supplies%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+<div class = "column">
+
+    <h1 style="text-align: center;">SUPPLY</h1>
+    <table id="myTable" class="tg" style = "text-align: center; font-family: Arial, Helvetica, sans-serif;">
+        <thead style = "text-align: center;">
+          <tr style = "text-align: center;">
+            <th style="color:white; background-color: rgba(83,42,18,255);">Item</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Amount Sold</th>
+            <th style="color:white; background-color: rgba(83,42,18,255);">Vendor</th>
+          </tr>
+        </thead>
+        <tbody id="testBody">
+            <% for (var i in supplyList) {%>
+                <tr id = "table<%=i%>">
+                    <td><%=supplyList[i].supplyname%></td>
+                    <td><%=supplyList[i].stock%></td>
+                    <td><%=supplyList[i].vendor%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+</div>
+<body>
+    <br>
+    <br>
+    <br>
+    <h1 style="text-align: center;">SALES REPORT</h1>
+
+    <form action="http://localhost:3000/process_sales" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Start Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time1" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">End Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time2" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Get Sales Report </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">WHAT SALES TOGETHER REPORT</h1>
+    <form action="http://localhost:3000/process_salesTogether" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Start Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time1b" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">End Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time2b" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Get Sales Together Report </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">EXCESS REPORT</h1>
+    <form action="http://localhost:3000/process_excess" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Start Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time1" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">End Date: </b></label>
+        <input type="text" placeholder="YYYY-MM-DD HH:MM:SS" name="time2" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Get Excess Report </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">RESTOCK REPORT</h1>
+    <form action="http://localhost:3000/process_restock" method="POST" style="text-align: center;">
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Get Restock Report </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">UPDATE STOCK</h1>
+    <form action="http://localhost:3000/process_updateStock" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Supply Name: </b></label>
+        <input type="text" placeholder="name" name="stockName" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">New Amount: </b></label>
+        <input type="text" placeholder="100" name="amount" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Update Stock </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">ADD MENU ITEM</h1>
+    <form action="http://localhost:3000/process_addMenuItem" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Menu Item Name: </b></label>
+        <input type="text" placeholder="name" name="itemName" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Price: </b></label>
+        <input type="text" placeholder="0.00" name="newPrice" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Supplies: </b></label>
+        <input type="text" placeholder="supply1 supply2 supply3..." name="supplies" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Add New Menu Item </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">REMOVE MENU ITEM</h1>
+    <form action="http://localhost:3000/process_removeMenuItem" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Menu Item Name: </b></label>
+        <input type="text" placeholder="name" name="removeItemName" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Remove Menu Item </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">ADD SUPPLY ITEM</h1>
+    <form action="http://localhost:3000/process_addSupplyItem" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Supply Item Name: </b></label>
+        <input type="text" placeholder="name" name="supplyName" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Initial Stock: </b></label>
+        <input type="text" placeholder="100" name="stock" required>
+        <br>
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Vendor: </b></label>
+        <input type="text" placeholder="vendor" name="vendor" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Add Supply Item </b></button>
+    </form>
+    <br>
+    <h1 style="text-align: center;">REMOVE SUPPLY ITEM</h1>
+    <form action="http://localhost:3000/process_removeSupplyItem" method="POST" style="text-align: center;">
+        <label for="uname"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Supply Item Name: </b></label>
+        <input type="text" placeholder="name" name="removeItemName" required>
+        <br>
+        <button type="submit" value="Submit"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Remove Supply Item </b></button>
+    </form>
+</body>
+</head>

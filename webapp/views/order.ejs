@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel ="stylesheet" href = "order2.css">
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src = "order2.js"></script>
+  <link rel="icon" type="image/x-icon" href="img/cabologo.png">
+  <title>Cabo Grill</title>
+  <title>Order</title>
+</head>
+<body style="background-color:rgb(232, 231, 220);">
+  <div class = "topnav">
+    <a href = "signin" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold" >Cabo Grill</a> 
+
+    <div class="topnav-right">
+    <a href = "#google_translate_element" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Translate</a>
+    <a href = "#googleMapsElement" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Need Directions?</a>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Welcome to Cabo Grill's online checkout!</p>
+  <ul><img src="img/cabologo.png" alt="Cabo logo" style="height:20%;width: 20%; text-align: center;"></ul>
+  <p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Please select bowl, burrito or taco.</p>
+
+<ul>
+    <li><input type="checkbox" id="bowl" onclick = "clickBowl()" />
+      <label for="bowl"><img src="img/cal_burrito.png" /></label>
+      Bowl
+    </li>
+    <li><input type="checkbox" id="burrito" onclick = "clickBurrito()"/>
+      <label for="burrito"><img src="img/cal_bowl.png" /></label>
+      Burrito
+    </li>
+    <li><input type="checkbox" id="taco" onclick = "clickTaco()"/>
+      <label for="taco"><img src="img/cal_tacos.png" /></label>
+      Tacos
+    </li>
+</ul>
+
+
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Please select your protein.</p>
+
+<ul>
+  <li><input type="checkbox" id="chicken"  onclick = "clickChicken()" />
+    <label for="chicken"><img src="img/cal_chicken.png" /></label>
+    Chicken
+  </li>
+  <li><input type="checkbox" id="beef"  onclick = "clickBeef()" />
+    <label for="beef"><img src="img/cal_groundBeef.png" /></label>
+    Ground Beef
+  </li>
+  <li><input type="checkbox" id="steak"  onclick = "clickSteak()" />
+    <label for="steak"><img src="img/cal_steak.png" /></label>
+    Steak
+  </li>
+  <li><input type="checkbox" id="veg"  onclick = "clickVeg()" />
+    <label for="veg"><img src="img/cal_vegetables.png" /></label>
+    Grilled Vegetables
+  </li>
+</ul>
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Please select white or brown rice.</p>
+
+
+<ul>
+  <li><input type="checkbox" id="white"  onclick = "clickWhite()" />
+    <label for="white"><img src="img/cal_wrice.png" /></label>
+    White Rice
+  </li>
+  <li><input type="checkbox" id="brown"  onclick = "clickBrown()" />
+    <label for="brown"><img src="img/cal_brice.png" /></label>
+    Brown Rice
+  </li>
+</ul>
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Please select all additional toppings.</p>
+
+
+<ul>
+  <li><input type="checkbox" id="cheese"/>
+    <label for="cheese"><img src="img/cal_cheese.png" /></label>
+    Shredded Cheese
+  </li>
+  <li><input type="checkbox" id="corn"/>
+    <label for="corn"><img src="img/cal_corn.png" /></label>
+    Corn
+  </li>
+  <li><input type="checkbox" id="redSalsa"/>
+    <label for="redSalsa"><img src="img/cal_redSalsa.png" /></label>
+    Red Salsa
+  </li>
+</ul>
+
+<ul>
+  <li><input type="checkbox" id="greenSalsa"/>
+    <label for="greenSalsa"><img src="img/cal_greenSalsa.png" /></label>
+    Green Salsa
+  </li>
+  <li><input type="checkbox" id="lettuce"/>
+    <label for="lettuce"><img src="img/cal_lettuce.png" /></label>
+    Lettuce
+  </li>
+  <li><input type="checkbox" id="guac"/>
+    <label for="guac"><img src="img/cal_guacamole.png" /></label>
+    Guacamole
+  </li>
+  <li><input type="checkbox" id="sourCream"/>
+    <label for="sourCream"><img src="img/cal_sourCream.png" /></label>
+    Sour Cream
+  </li>
+</ul>
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Please select all extras.</p>
+
+<ul>
+  <li><input type="checkbox" id="chipsQuesos"/>
+    <label for="chipsQuesos"><img src="img/cal_chipsQueso.png" /></label>
+    Chips and Queso
+  </li>
+  <li><input type="checkbox" id="chipsGuacs"/>
+    <label for="chipsGuacs"><img src="img/cal_chipsGuac.png" /></label>
+    Chips and Guacamole
+  </li>
+  <li><input type="checkbox" id="chipsSalsas"/>
+    <label for="chipsSalsas"><img src="img/cal_chipsSalsa.png" /></label>
+    Chips and Salsa
+  </li>
+  <li><input type="checkbox" id="drinks"/>
+    <label for="drinks"><img src="img/cal_fountainDrink.png" /></label>
+    Fountain Drink
+  </li>
+</ul>
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Seasonal Items</p>
+
+<ul>
+  <% for (var i in seasonalItems) {%>
+    <li><input type="checkbox" id="seasonal<%=seasonalItems[i].itemname%>"/>
+      <label for="seasonal<%=seasonalItems[i].itemname%>" class="season" ><%=seasonalItems[i].itemname%></label>
+    </li>
+    <p class = "info" id="supply<%=seasonalItems[i].itemname%>"><%=seasonalItems[i].supplies%></p>
+  <% } %>
+</ul>
+
+<p style="font-size: xx-large; font-weight: bold; text-align: center; font-family: Arial, Helvetica, sans-serif;">Checkout or add another order.</p>
+
+
+</body>
+<footer>
+  <ul>
+  <button type = "button" id = "addtocartbutton" onclick="addToCart()">Add to Cart</button>
+  <button type = "button" id = "addtocartbutton" onclick="clearCart()">Clear Cart</button> <br>
+  <form action="http://localhost:3000/process_order" method="POST">
+    <input type="text" name="menuItemsString" class = "info" id = "menuItemsString"></label>
+    <input type="text" name="totalCartString" class = "info" id = "totalCartString"></label>
+    <button type="submit" value="Submit" onclick="checkout()"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Checkout</b></button>
+  </form>
+  Order Summary: &emsp; 
+  <ul id="myList"></ul>
+  <p id="price"></p>
+  <br>
+  <p id="checkout"></p>
+  <p id="error"></p>
+</ul>
+
+</footer>
+  </div>
+  <ul>
+<br>
+<br>
+
+<div id="google_translate_element"></div>
+    <script type="text/javascript"> 
+        function googleTranslateElementInit() {
+       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+       }
+    </script>
+</ul>
+
+<div class="footer"><strong style="color: white;">Thank you for visiting Cabo!</strong>.</div>
+<% for (var i in menu) {%>
+  <p class="info" id=<%=menu[i].itemname%>><%=menu[i].price%></p>
+<% } %>
+
+</body> 
+
+
+
+</html>
+  

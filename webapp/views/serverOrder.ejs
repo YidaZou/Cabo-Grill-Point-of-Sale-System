@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel ="stylesheet" href = "order2.css">
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src = "order2.js"></script>
+  <link rel="icon" type="image/x-icon" href="img/cabologo.png">
+  <title>Cabo Grill</title>
+  <title>Order</title>
+</head>
+<body style="background-color:rgb(232, 231, 220);">
+  <div class = "topnav">
+    <a href = "order" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Customer Order</a>
+    <a href = "signin" style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Sign In</a>
+    </div>
+  </div>
+
+
+
+  <ul>
+    <li><input type="checkbox" id="bowl" onclick = "clickBowl()" />
+      <label for="bowl"><img src="img/bowl.png" /></label>
+    </li>
+    <li><input type="checkbox" id="burrito" onclick = "clickBurrito()"/>
+      <label for="burrito"><img src="img/burrito.png" /></label>
+    </li>
+    <li><input type="checkbox" id="taco" onclick = "clickTaco()"/>
+      <label for="taco"><img src="img/tacos.png" /></label>
+    </li>
+
+
+  <li><input type="checkbox" id="chicken"  onclick = "clickChicken()" />
+    <label for="chicken"><img src="img/chicken.png" /></label>
+  </li>
+  <li><input type="checkbox" id="beef"  onclick = "clickBeef()" />
+    <label for="beef"><img src="img/groundBeef.png" /></label>
+  </li>
+  <li><input type="checkbox" id="steak"  onclick = "clickSteak()" />
+    <label for="steak"><img src="img/steak.png" /></label>
+  </li>
+  <li><input type="checkbox" id="veg"  onclick = "clickVeg()" />
+    <label for="veg"><img src="img/vegetables.png" /></label>
+  </li>
+
+
+  <li><input type="checkbox" id="white"  onclick = "clickWhite()" />
+    <label for="white"><img src="img/wrice.png" /></label>
+  </li>
+  <li><input type="checkbox" id="brown"  onclick = "clickBrown()" />
+    <label for="brown"><img src="img/brice.png" /></label>
+  </li>
+
+
+  <li><input type="checkbox" id="cheese"/>
+    <label for="cheese"><img src="img/cheese.png" /></label>
+  </li>
+  <li><input type="checkbox" id="corn"/>
+    <label for="corn"><img src="img/corn.png" /></label>
+  </li>
+  <li><input type="checkbox" id="redSalsa"/>
+    <label for="redSalsa"><img src="img/redSalsa.png" /></label>
+  </li>
+
+
+  <li><input type="checkbox" id="greenSalsa"/>
+    <label for="greenSalsa"><img src="img/greenSalsa.png" /></label>
+  </li>
+  <li><input type="checkbox" id="lettuce"/>
+    <label for="lettuce"><img src="img/lettuce.png" /></label>
+  </li>
+  <li><input type="checkbox" id="guac"/>
+    <label for="guac"><img src="img/guacamole.png" /></label>
+  </li>
+  <li><input type="checkbox" id="sourCream"/>
+    <label for="sourCream"><img src="img/sourCream.png" /></label>
+  </li>
+
+
+  <li><input type="checkbox" id="chipsQuesos"/>
+    <label for="chipsQuesos"><img src="img/chipsQueso.png" /></label>
+  </li>
+  <li><input type="checkbox" id="chipsGuacs"/>
+    <label for="chipsGuacs"><img src="img/chipsGuac.png" /></label>
+  </li>
+  <li><input type="checkbox" id="chipsSalsas"/>
+    <label for="chipsSalsas"><img src="img/chipsSalsa.png" /></label>
+  </li>
+  <li><input type="checkbox" id="drinks"/>
+    <label for="drinks"><img src="img/fountainDrink.png" /></label>
+  </li>
+</ul>
+
+<ul>
+  <% for (var i in seasonalItems) {%>
+    <li><input type="checkbox" id="seasonal<%=seasonalItems[i].itemname%>"/>
+      <label for="seasonal<%=seasonalItems[i].itemname%>" class="season" ><%=seasonalItems[i].itemname%></label>
+    </li>
+    <p class = "info" id="supply<%=seasonalItems[i].itemname%>"><%=seasonalItems[i].supplies%></p>
+  <% } %>
+</ul>
+
+</body>
+<footer>
+  <ul>
+  <button type = "button" id = "addtocartbutton" onclick="addToCart()"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Add to Cart</b></button>
+  <button type = "button" id = "addtocartbutton" onclick="clearCart()"><b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Clear Cart</b></button> <br>
+  <form action="http://localhost:3000/transaction" method="POST">
+    <input type="text" name="menuItemsString" class = "info" id = "menuItemsString"></label>
+    <input type="text" name="totalCartString" class = "info" id = "totalCartString"></label>
+    <button type="submit" value="Submit" onclick="checkout()"> <b style="font-family: Arial, Helvetica, sans-serif; font-weight:bold">Checkout</b></button>
+  </form>
+  Order Summary: &emsp; 
+  <ul id="myList"></ul>
+  <p id="price"></p>
+  <br>
+  <p id="checkout"></p>
+  <p id="error"></p>
+</ul>
+
+<div style = "margin-left:auto;margin-right:auto;">
+  <table id="myTable" class="tg" style = "text-align: center; font-family: Arial, Helvetica, sans-serif; margin-left:auto;margin-right:auto;">
+      <thead style = "text-align: center;">
+        <tr style = "text-align: center;">
+          <th style="color:white; background-color: rgba(83,42,18,255);">Order Number</th>
+          <th style="color:white; background-color: rgba(83,42,18,255);">Date</th>
+          <th style="color:white; background-color: rgba(83,42,18,255);">Total Price</th>
+          <th style="color:white; background-color: rgba(83,42,18,255);">Order Items</th>
+          <th style="color:white; background-color: rgba(83,42,18,255);">Approve</th>
+          <th style="color:white; background-color: rgba(83,42,18,255);">Deny</th>
+        </tr>
+      </thead>
+      <tbody id="testBody">
+          <% for (var i in orderList) {%>
+              <tr id = "table<%=i%>">
+                  <td><%=i%></td>
+                  <!-- let date = %=orderList[i].orderdate%
+                  date = date.substring -->
+                  
+                  <td><%=orderList[i].orderdate.toLocaleString()%></td>
+                  <td>$<%=orderList[i].totalprice%></td>
+                  <td><%=orderList[i].orderitems%></td>
+                  
+                  <td>
+                    <form action="http://localhost:3000/approve_order" method="POST">
+                      <input type="text" name="approve" class = "info" id = "approve" value = "<%=i%>"></label>
+                      <input type="submit" value="Approve"  style="color: green;" >
+                    </form>
+                  </td>
+                  <td>
+                    <form action="http://localhost:3000/deny_order" method="POST">
+                      <input type="text" name="deny" class = "info" id = "deny" value = "<%=i%>"></label>
+                      <input type="submit" value="Deny"  style="color: red;" >
+                    </form>
+                  </td>
+              </tr>
+          <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+  <br>
+
+</footer>
+  </div>
+  <!-- <ul>
+<br>
+<br>
+
+<div id="google_translate_element"></div>
+    <script type="text/javascript"> 
+        function googleTranslateElementInit() {
+       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+       }
+    </script>
+</ul>
+
+<div class="footer"><strong style="color: white;">Thank you for visiting Cabo!</strong>.</div> -->
+<% for (var i in menuList) {%>
+  <p class="info" id=<%=menuList[i].itemname%>><%=menuList[i].price%></p>
+<% } %>
+
+</body> 
+
+
+
+</html>
+  
